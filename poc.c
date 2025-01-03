@@ -177,12 +177,12 @@ uint64_t saved_esp;
 void wrapper() {
 	asm volatile ("					\n\
 	payload:					\n\
-		movq %%rbp, %%rax			\n\
+		movq %%ebp, %%rax			\n\
 		movq $0xffffffff00000000, %%rdx		\n\
-		andq %%rdx, %%rax			\n\
-		movq %0, %%rdx				\n\
-		addq %%rdx, %%rax			\n\
-		movq %%rax, %%rsp			\n\
+		andq %%edx, %%eax			\n\
+		movq %0, %%edx				\n\
+		addq %%edx, %%eax			\n\
+		movq %%eax, %%esp			\n\
 		call get_root				\n\
 		ret					\n\
 	" : : "m"(saved_esp) : );
